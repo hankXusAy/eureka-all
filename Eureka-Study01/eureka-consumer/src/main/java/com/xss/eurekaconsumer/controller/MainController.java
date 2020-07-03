@@ -30,7 +30,8 @@ public class MainController {
     private EurekaClient eurekaClient;
     @Autowired
     private LoadBalancerClient loadBalancerClient;
-
+    @Autowired
+    private RestTemplate restTemplate;
     @GetMapping("/getHi")
     public String getHi(){
         return "hi";
@@ -95,5 +96,12 @@ public class MainController {
         String forObject = restTemplate.getForObject(url, String.class);
         System.out.println("result: " + forObject);
         return "xxxx";
+    }
+
+    @GetMapping("/client6")
+    public Object client6(){
+        String url ="http://provider/getHi";
+        String respStr = restTemplate.getForObject(url, String.class);
+        return respStr;
     }
 }
