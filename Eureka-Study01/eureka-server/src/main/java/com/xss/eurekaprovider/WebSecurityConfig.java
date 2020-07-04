@@ -13,6 +13,7 @@
 // * @Date 2020/7/1 3:23 下午
 // * @Return
 // */
+//安全认证配置
 //@Configuration
 //@EnableWebSecurity
 //public class WebSecurityConfig extends WebSecurityConfigurerAdapter {

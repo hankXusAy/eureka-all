@@ -1,5 +1,6 @@
 package com.xss.eurekaconsumer;
 
+import com.xss.eurekaconsumer.controller.LoggingClientHttpRequestInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -15,9 +16,10 @@ public class EurekaConsumerApplication {
         SpringApplication.run(EurekaConsumerApplication.class, args);
     }
     @Bean
-    // 开启负载均衡
     @LoadBalanced
     RestTemplate restTemplate() {
-        return new RestTemplate();
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getInterceptors().add(new LoggingClientHttpRequestInterceptor());
+        return restTemplate;
     }
 }
