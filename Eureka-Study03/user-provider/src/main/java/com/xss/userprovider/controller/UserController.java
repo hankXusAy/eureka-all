@@ -1,6 +1,6 @@
 package com.xss.userprovider.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import com.xss.userapi.UserAPI;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -12,10 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
  * @Return
  */
 @RestController
-public class UserController {
+public class UserController implements UserAPI {
 
-    @GetMapping("/alive")
+    @Override
     public String alive() {
-        return "ok";
+        return "ooxxoo";
     }
+
+    @Override
+    public String getById(Integer id) {
+        return "我的id是"+id;
+    }
+
 }

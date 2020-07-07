@@ -1,8 +1,9 @@
 package com.xss.userconsumer.controller;
 
-import com.xss.userconsumer.service.UserApi;
+import com.xss.userconsumer.service.UserConsumerApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -17,14 +18,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class MainController {
 
     @Autowired
-    UserApi userApi;
+    UserConsumerApi userApi;
 
     @GetMapping("/alive")
     public String alive(){
         return userApi.alive();
     }
-    @GetMapping("/register")
-    public String register(){
-        return userApi.register();
+
+    @GetMapping("/getById")
+    public String getById(Integer id){
+        return userApi.getById(id);
     }
 }
