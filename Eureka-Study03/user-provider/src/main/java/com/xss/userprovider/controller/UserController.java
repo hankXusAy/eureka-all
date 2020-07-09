@@ -34,7 +34,7 @@ public class UserController implements UserAPI {
 
         try {
             System.out.println("准备睡");
-            Thread.sleep(4000);
+            Thread.sleep(400);
 //            Thread.sleep(400);
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
@@ -42,8 +42,8 @@ public class UserController implements UserAPI {
         }
 
         int i = count.getAndIncrement();
-        System.out.println(port + "====坏的第：" + i + "次调用");
-//        System.out.println(port + "====好的第：" + i + "次调用");
+//        System.out.println(port + "====坏的第：" + i + "次调用");
+        System.out.println(port + "====好的第：" + i + "次调用");
         return "port:" + port;
     }
 
