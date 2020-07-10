@@ -10,7 +10,8 @@ import java.util.Map;
 
 //@FeignClient(name = "userApi",url = "http://user-provider/alive")
 //@FeignClient(name = "userApi",url = "http://localhost:85/")
-@FeignClient(name = "user-provider",fallback = ConsumerFallBack.class)
+//@FeignClient(name = "user-provider",fallback = ConsumerFallBack.class)
+@FeignClient(name = "user-provider",fallbackFactory = ConsumerFallBackFactory.class)
 public interface UserConsumerApi extends UserAPI {
     @GetMapping("/getMap")
     Map<Integer, String> getMap(@RequestParam("id") Integer id);
