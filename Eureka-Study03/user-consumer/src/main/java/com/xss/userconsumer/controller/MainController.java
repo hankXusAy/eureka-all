@@ -1,5 +1,6 @@
 package com.xss.userconsumer.controller;
 
+import com.xss.userconsumer.service.RestService;
 import com.xss.userconsumer.service.UserConsumerApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +23,8 @@ public class MainController {
     @Autowired
     UserConsumerApi api;
 
+    @Autowired
+    RestService restService;
 //    @Autowired
 //    MashibingApi mapi;
 
@@ -35,7 +38,10 @@ public class MainController {
          */
         return api.alive();
     }
-
+    @GetMapping("/alive2")
+    public String alive2() {
+        return restService.alive();
+    }
 
 //    @GetMapping("/vip")
 //    public String vip() {
