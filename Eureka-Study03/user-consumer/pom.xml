@@ -40,7 +40,7 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
-        <!--    引入依赖    -->
+        <!--    线程池隔离引入依赖    -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>
