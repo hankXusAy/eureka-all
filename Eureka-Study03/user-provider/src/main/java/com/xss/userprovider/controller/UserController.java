@@ -48,7 +48,7 @@ public class UserController implements UserAPI {
 //    }
     @Override
     public String alive() {
-       int i = 1/0;
+       //int i = 1/0;
         return "port:" + port;
     }
     @Override

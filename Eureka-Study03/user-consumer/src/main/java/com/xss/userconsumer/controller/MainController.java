@@ -3,6 +3,7 @@ package com.xss.userconsumer.controller;
 import com.xss.userconsumer.service.RestService;
 import com.xss.userconsumer.service.UserConsumerApi;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,8 +21,11 @@ import java.util.Map;
 @RestController
 public class MainController {
 
+    @Value("${server.port}")
+    String port;
+
     @Autowired
-    UserConsumerApi api;
+    private UserConsumerApi api;
 
     @Autowired
     RestService restService;
@@ -40,7 +44,7 @@ public class MainController {
     }
     @GetMapping("/alive2")
     public String alive2() {
-        return restService.alive();
+        return "Consumer: "+ port + "->>>>"+ restService.alive();
     }
 
 //    @GetMapping("/vip")
